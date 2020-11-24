@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SportGameprototype</string>
+    <string name="playerRecordButton">선수 기록보기</string>
+    <string name="joinGame">게임 참가</string>
+    <string name="liveGame">실시간 경기</string>
+    <string name="lotteryRecord">추첨 기록</string>
+    <string name="logo_image">Logo Image</string>
+    <string name="intro_image">Intro image</string>
+</resources>
