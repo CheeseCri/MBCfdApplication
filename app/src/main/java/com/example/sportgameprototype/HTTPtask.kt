@@ -3,6 +3,7 @@
 package com.example.sportgameprototype
 
 import android.os.AsyncTask
+import android.util.Log
 import org.json.*
 import java.io.*
 import java.net.HttpURLConnection
@@ -31,10 +32,15 @@ class HTTPtask : AsyncTask<String, Int, String>() {
                             "&season=" + params[2] +
                             "&team=" + params[3]
                 }
+                "gamelist" -> {
+                    sendMsg = "type=" + params[1] +
+                            "&date=" + params[2]
+                }
                 else -> {
                     return "HTTP Request InputType Error"
                 }
             }
+            Log.d("HTTPTASK", "sendMsg : ${sendMsg}")
             osw.write(sendMsg)
             osw.flush()
 

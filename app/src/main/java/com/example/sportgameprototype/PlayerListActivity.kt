@@ -31,12 +31,9 @@ class PlayerListActivity : AppCompatActivity(), ItemClickListener {
         val spSeason : Spinner = findViewById(R.id.sp_season)
         val spTeam : Spinner = findViewById(R.id.sp_team)
         val rvDataList : RecyclerView = findViewById(R.id.rv_data_list)
-
-        val JSPURL = "http://192.168.20.171:8080/NewFile.jsp"
-
         //val jData:String = Task().execute(JSPURL).get()
 
-        val sData:String = HTTPtask().execute(JSPURL, "spinner").get()
+        val sData:String = HTTPtask().execute(getString(R.string.JSPURL), "spinner").get()
 
         //Log.i("JSON", jData)
 
@@ -63,24 +60,22 @@ class PlayerListActivity : AppCompatActivity(), ItemClickListener {
                 position: Int,
                 id: Long
             ) {
-                Log.i("USERLOG-SPINNER", spSeason.selectedItem.toString())
-                Log.i("USERLOG-SPINNER", spTeam.selectedItem.toString())
+                Log.d("USERLOG-SPINNER", spSeason.selectedItem.toString())
+                Log.d("USERLOG-SPINNER", spTeam.selectedItem.toString())
 
-                Log.i("USERLOG-SPINNER", spSeason.selectedItemPosition.toString())
-                Log.i("USERLOG-SPINNER", spTeam.selectedItemPosition.toString())
+                Log.d("USERLOG-SPINNER", spSeason.selectedItemPosition.toString())
+                Log.d("USERLOG-SPINNER", spTeam.selectedItemPosition.toString())
 
                 if((spSeason.selectedItemPosition != 0  && spTeam.selectedItemPosition != 0)){
                         //두 셀렉트 된 값을 모아서
                         //HTTPtask에 excute하고 집어넣어서 뿌려주는 과정 진행
                         //그 과정에서 데이터를 가져오는 함수를 어떻게 진행 할 것인가?
 
-                    Log.i("USERLOG-SPINNER", "IF PASS, GET DATA")
-                    val jData:String = HTTPtask().execute(JSPURL, "recycle", spSeason.selectedItem.toString(), spTeam.selectedItem.toString()).get()
-                    Log.i("USERLOG", jData.toString())
+                    Log.d("USERLOG-SPINNER", "IF PASS, GET DATA")
+                    val jData:String = HTTPtask().execute(getString(R.string.JSPURL), "recycle", spSeason.selectedItem.toString(), spTeam.selectedItem.toString()).get()
+                    Log.d("USERLOG", jData)
                     val playerDataArray = addPlayerDataArray(JSONArray(jData))
                     myAdapter.setFilter(playerDataArray)
-
-
                 }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {

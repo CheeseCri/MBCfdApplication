@@ -2,6 +2,7 @@ package com.example.sportgameprototype
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import org.jetbrains.anko.startActivity
 
 class IntroActivity : AppCompatActivity() {

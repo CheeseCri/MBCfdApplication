@@ -10,19 +10,21 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.*
 
-class PlayerAdapter( private val context: Context, private val itemClickListener: ItemClickListener): RecyclerView.Adapter<viewHolder>() {
+class PlayerAdapter( private val context: Context, 
+                     private val itemClickListener: ItemClickListener)
+    : RecyclerView.Adapter<playerViewHolder>() {
 
     var mylist = arrayListOf<PlayerInfo>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
-        return viewHolder(LayoutInflater.from(context).inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): playerViewHolder {
+        return playerViewHolder(LayoutInflater.from(context).inflate(
             R.layout.data_list_item,
             parent,
             false
         ))
     }
 
-    override fun onBindViewHolder(holder: viewHolder, position: Int) {
+    override fun onBindViewHolder(holder: playerViewHolder, position: Int) {
         val pID = mylist[position].playerId
         holder.tvNum.text = mylist[position].backNumber
         holder.tvName.text = mylist[position].playerName
@@ -43,7 +45,7 @@ class PlayerAdapter( private val context: Context, private val itemClickListener
     }
 }
 
-class viewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class playerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val tvNum = view.findViewById<TextView>(R.id.tvNum)
     val tvName= view.findViewById<TextView>(R.id.tvName)
     val tvTeam= view.findViewById<TextView>(R.id.tvPos)
