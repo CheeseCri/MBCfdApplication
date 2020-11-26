@@ -36,6 +36,9 @@ class HTTPtask : AsyncTask<String, Int, String>() {
                     sendMsg = "type=" + params[1] +
                             "&date=" + params[2]
                 }
+                "player" -> {
+                    sendMsg = "type=${params[1]}&pid=${params[2]}&info=${params[3]}"
+                }
                 else -> {
                     return "HTTP Request InputType Error"
                 }
