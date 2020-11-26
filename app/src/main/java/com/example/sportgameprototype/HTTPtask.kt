@@ -43,7 +43,7 @@ class HTTPtask : AsyncTask<String, Int, String>() {
                     return "HTTP Request InputType Error"
                 }
             }
-            Log.d("HTTPTASK", "sendMsg : ${sendMsg}")
+            Log.d("USERLOG-HTTPTASK", "sendMsg : ${sendMsg}")
             osw.write(sendMsg)
             osw.flush()
 
