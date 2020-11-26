@@ -34,11 +34,8 @@ class PlayerListActivity : AppCompatActivity(), ItemClickListener {
         //val jData:String = Task().execute(JSPURL).get()
 
         val sData:String = HTTPtask().execute(getString(R.string.JSPURL), "spinner").get()
-
         //Log.i("JSON", jData)
-
         Log.i("USERLOG-JSON", sData.toString())
-
         seasonArray.add("--")
         teamArray.add("--")
         //addJDataArray(JSONArray(jData))
