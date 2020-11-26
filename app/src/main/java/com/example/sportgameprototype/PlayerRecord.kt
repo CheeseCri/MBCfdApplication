@@ -1,7 +1,5 @@
 package com.example.sportgameprototype
 
-import java.time.LocalDate
-
 class PlayerRecord(
         var SEASON_ID: Int,
         var G_ID: String,
