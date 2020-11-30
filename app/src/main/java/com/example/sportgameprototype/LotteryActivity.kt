@@ -55,7 +55,7 @@ class LotteryActivity : AppCompatActivity() {
         btSendLottery = findViewById(R.id.bt_send_lottery)
 
         //userID의 경우 추후 shardPreference에서 처리 해야함.
-        val userID = "yunghn"
+        val userID = "test1"
         val gameID = intent.getStringExtra("gameID")
         val gameData = HTTPtask().execute(getString(R.string.JSPURL), "query", String.format(sql,gameID)).get()
         gameInfo = GameListActivity().addGameListArray(JSONArray(gameData)).get(0)
@@ -107,7 +107,8 @@ class LotteryActivity : AppCompatActivity() {
                                 gameID,
                                 rtmList.filter{it.checked}[0].id,
                                 ldList.filter{it.checked}[0].id))
-                Toast.makeText(this, "rtmP_ID : ${rtmList.filter{it.checked}[0].id}\n ldP_ID : ${ldList.filter{it.checked}[0].id}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "rtmP_ID : ${rtmList.filter{it.checked}[0].id}\n " +
+                        "ldP_ID : ${ldList.filter{it.checked}[0].id}", Toast.LENGTH_LONG).show()
                 finish()
             }
         }
