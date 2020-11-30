@@ -39,6 +39,9 @@ class HTTPtask : AsyncTask<String, Int, String>() {
                 "player" -> {
                     sendMsg = "type=${params[1]}&pid=${params[2]}&info=${params[3]}"
                 }
+                "query" -> {
+                    sendMsg = "type=${params[1]}&sql=${params[2]}"
+                }
                 else -> {
                     return "HTTP Request InputType Error"
                 }
