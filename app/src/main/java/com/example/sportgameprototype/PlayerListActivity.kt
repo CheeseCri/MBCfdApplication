@@ -102,7 +102,7 @@ class PlayerListActivity : AppCompatActivity(), ItemClickListener {
         Log.i("USERLOG-SPINNERARRAY", teamArray.toString())
     }
 
-    private fun addPlayerDataArray(jsonArray : JSONArray): ArrayList<PlayerInfo> {
+    fun addPlayerDataArray(jsonArray : JSONArray): ArrayList<PlayerInfo> {
         val playerDataArray : ArrayList<PlayerInfo> = ArrayList()
         for (i in 0 until jsonArray.length()){
             val item = jsonArray.getJSONObject(i) as JSONObject
@@ -123,24 +123,5 @@ class PlayerListActivity : AppCompatActivity(), ItemClickListener {
         intent.putExtra("playerID", playerID)
         startActivity(intent)
     }
-
-
-    //예시코드, 현재 필요없음.
-//    private fun addDataArray( ) {
-//        dataArray.add("오리")
-//        dataArray.add("호랑이")
-//        dataArray.add("여우")
-//        dataArray.add("늑대")
-//        dataArray.add("오소리")
-//        dataArray.add("원숭이")
-//        dataArray.add("물개")
-//        dataArray.add("펭귄")
-//        dataArray.add("하마")
-//        dataArray.add("미어캣")
-//        dataArray.add("타조")
-//        dataArray.add("강아지")
-//        dataArray.add("고양이")
-//    }
-
 }
 
