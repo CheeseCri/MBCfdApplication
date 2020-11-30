@@ -18,16 +18,10 @@ class MainMenuActivity : AppCompatActivity() {
             val intent = Intent(this, PlayerListActivity::class.java)
             startActivity(intent)
         }
-
         btJoinGame = findViewById(R.id.bt_join_game)
         btJoinGame.setOnClickListener {
             val intent = Intent(this, GameListActivity::class.java)
             startActivity(intent)
         }
-
-
-
-
-
     }
 }
