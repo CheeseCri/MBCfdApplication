@@ -32,8 +32,6 @@ class GameAdapter (private val context : Context,
         holder.btDoLottery.setOnClickListener {
             val intent = Intent(context, LotteryActivity::class.java)
             intent.putExtra("gameID", gameList[position].gameID)
-            intent.putExtra("homeTeam", gameList[position].homeTeam)
-            intent.putExtra("awayTeam", gameList[position].awayTeam)
             ContextCompat.startActivity(context, intent, null)
         }
     }
