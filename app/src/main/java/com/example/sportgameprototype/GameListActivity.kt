@@ -24,13 +24,12 @@ class GameListActivity : AppCompatActivity(){
         rvGameList = findViewById(R.id.rv_game_list)
         rvGameList.layoutManager = LinearLayoutManager(this)
         rvGameList.adapter = gameListAdapter
-
-//        rvGameList.adapter = tmpGameAdapter
+    //        rvGameList.adapter = tmpGameAdapter
 
 
     }
 
-    private fun addGameListArray(jsonArray : JSONArray): ArrayList<GameInfo> {
+    fun addGameListArray(jsonArray : JSONArray): ArrayList<GameInfo> {
         val gameListArray : ArrayList<GameInfo> = ArrayList()
         for (i in 0 until jsonArray.length()) {
             val item = jsonArray.getJSONObject(i) as JSONObject
