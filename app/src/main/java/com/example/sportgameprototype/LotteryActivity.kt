@@ -94,8 +94,8 @@ class LotteryActivity : AppCompatActivity() {
             ldList.addAll(homeLdCheckBoxList)
             ldList.addAll(awayLdCheckBoxList)
 //            Toast.makeText(this, "${rtmList.filter{it.checked}.size} ${ldList.filter{it.checked}.size} ", Toast.LENGTH_LONG).show()
-            if(rtmList.filter{it.checked}.size > 1 || ldList.filter{it.checked}.size > 1){
-                Toast.makeText(this, "선수는 종목당 1명만 선택할 수 있습니다.", Toast.LENGTH_LONG).show()
+            if(rtmList.filter{it.checked}.size != 1 || ldList.filter{it.checked}.size != 1){
+                Toast.makeText(this, "선수 종목당 1명씩 선택해야 합니다.", Toast.LENGTH_LONG).show()
             } else {
                 // 추후 서버쪽 응답코드를 만들어서 제대로 통신이 되었는지 검증하는 과정 필요.
                 HTTPtask().execute(
