@@ -22,8 +22,6 @@ class LotteryActivity : AppCompatActivity() {
     private lateinit var homePlayerList : ArrayList<PlayerInfo>
     private lateinit var awayPlayerList : ArrayList<PlayerInfo>
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lottery)
@@ -38,7 +36,7 @@ class LotteryActivity : AppCompatActivity() {
         """.trimIndent()
         val insert_lottery_sql : String = """
             INSERT INTO 
-            `sample_user_lottery_record`(`U_ID`, `G_ID`, `BEST_RM_PID`, `BET_LD_PID`) 
+            `sample_user_lottery_record`(`U_ID`, `G_ID`, `BEST_RTM_PID`, `BEST_LD_PID`) 
             VALUES ('%s', '%s', '%s', '%s') 
         """.trimIndent()
 

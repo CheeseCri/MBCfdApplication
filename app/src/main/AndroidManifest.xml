@@ -12,14 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SportGameprototype"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LotteryActivity"></activity>
+        <activity android:name=".UserRecordActivity"></activity>
+        <activity android:name=".LotteryActivity" />
         <activity android:name=".GameListActivity" />
         <activity android:name=".MainMenuActivity" />
         <activity android:name=".PlayerListActivity" />
         <activity android:name=".PlayerDetailActvity" />
-        <activity android:name=".IntroActivity" android:theme="@style/IntroTheme">
+        <activity
+            android:name=".IntroActivity"
+            android:theme="@style/IntroTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -14,13 +14,19 @@ class MainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
         btPlayerRecord = findViewById(R.id.bt_player_record)
+        btJoinGame = findViewById(R.id.bt_join_game)
+        btLotteryRecord = findViewById(R.id.bt_lottery_record)
+
         btPlayerRecord.setOnClickListener {
             val intent = Intent(this, PlayerListActivity::class.java)
             startActivity(intent)
         }
-        btJoinGame = findViewById(R.id.bt_join_game)
         btJoinGame.setOnClickListener {
             val intent = Intent(this, GameListActivity::class.java)
+            startActivity(intent)
+        }
+        btLotteryRecord.setOnClickListener {
+            val intent = Intent( this, UserRecordActivity::class.java)
             startActivity(intent)
         }
     }
