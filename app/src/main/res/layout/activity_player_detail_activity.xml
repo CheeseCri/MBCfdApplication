@@ -7,7 +7,7 @@
     tools:context=".PlayerDetailActvity">
 
     <ImageView
-        android:id="@+id/imgv_player_photo"
+        android:id="@+id/imgv_logo_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -35,7 +35,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="40dp"
         android:text="Player Name"
-        app:layout_constraintBottom_toTopOf="@+id/imgv_player_photo"
+        app:layout_constraintBottom_toTopOf="@+id/imgv_logo_photo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_recent_record"
         android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,13 +61,13 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_pid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgv_player_photo" />
+        app:layout_constraintTop_toBottomOf="@+id/imgv_logo_photo" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_season_avg"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginTop="60dp"
         app:layout_constraintBottom_toTopOf="@id/rv_recent_record"
         app:layout_constraintEnd_toEndOf="parent"

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.json.JSONArray
@@ -41,6 +42,7 @@ class UserRecordActivity : AppCompatActivity() {
         tvLdSuccessCount.text = lotteryRecordJson.getString("ld_success")
         tvRtmSuccessCount.text = lotteryRecordJson.getString("rtm_success")
 
+        rvLotteryUserRecord.addItemDecoration(DividerItemDecoration(this, 1))
         rvLotteryUserRecord.layoutManager = LinearLayoutManager(this)
         rvLotteryUserRecord.adapter = UserRecordAdapter(this, lotteryRecordItems)
 
