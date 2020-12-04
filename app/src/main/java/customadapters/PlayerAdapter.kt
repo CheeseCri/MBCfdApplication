@@ -1,14 +1,16 @@
-package com.example.sportgameprototype
+package customadapters
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.*
+import com.example.sportgameprototype.ItemClickListener
+import com.example.sportgameprototype.PlayerInfo
+import com.example.sportgameprototype.R
+import com.example.sportgameprototype.posTransform
 
 class PlayerAdapter( private val context: Context, 
                      private val itemClickListener: ItemClickListener)
@@ -26,9 +28,9 @@ class PlayerAdapter( private val context: Context,
 
     override fun onBindViewHolder(holder: playerViewHolder, position: Int) {
         val pID = mylist[position].playerId
-        holder.tvNum.text = mylist[position].backNumber
+        holder.tvNum.text = mylist[position].backNumber.toString()
         holder.tvName.text = mylist[position].playerName
-        holder.tvTeam.text = mylist[position].playerPos
+        holder.tvTeam.text = posTransform(mylist[position].playerPos)
 
         holder.detailButton.setOnClickListener{
             itemClickListener.onItemButtonClick(pID)
