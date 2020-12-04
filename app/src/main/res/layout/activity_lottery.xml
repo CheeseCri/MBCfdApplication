@@ -10,15 +10,18 @@
         android:id="@+id/rv_lottery_hplayer_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toTopOf="@id/bt_send_lottery"
         app:layout_constraintEnd_toStartOf="@id/rv_lottery_aplayer_list"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/constraintLayout" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_lottery_aplayer_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toTopOf="@id/bt_send_lottery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
