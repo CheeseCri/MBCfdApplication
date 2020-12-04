@@ -1,14 +1,16 @@
 package com.example.sportgameprototype
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import customadapters.LotteryAdapter
 import org.json.JSONArray
 
 class LotteryActivity : AppCompatActivity() {
@@ -59,7 +61,7 @@ class LotteryActivity : AppCompatActivity() {
         gameInfo = GameListActivity().addGameListArray(JSONArray(gameData)).get(0)
         changeImage(imgvAwayTeam, gameInfo.awayTeam)
         changeImage(imgvHomeTeam, gameInfo.homeTeam)
-
+        tvLotteryGameDate.text = gameInfo.gameDate
         val homePlayerData = HTTPtask().execute(
                 getString(R.string.JSPURL), "query",
                 String.format(player_sql, gameInfo.homeTeam)).get()
@@ -71,8 +73,10 @@ class LotteryActivity : AppCompatActivity() {
 
         rvHomePlayerList.layoutManager = LinearLayoutManager(this)
         rvHomePlayerList.adapter = LotteryAdapter(this, homePlayerList, homeRtmCheckBoxList, homeLdCheckBoxList)
+        rvHomePlayerList.addItemDecoration(DividerItemDecoration(this,1))
         rvAwayPlayerList.layoutManager = LinearLayoutManager(this)
         rvAwayPlayerList.adapter = LotteryAdapter(this, awayPlayerList, awayRtmCheckBoxList, awayLdCheckBoxList)
+        rvAwayPlayerList.addItemDecoration(DividerItemDecoration(this,1))
 
         btSendLottery.setOnClickListener {
         // 버튼 클릭 시 DB에 선택된 데이터 전송.
@@ -111,20 +115,4 @@ class LotteryActivity : AppCompatActivity() {
             }
         }
     }
-
-    fun changeImage(view : ImageView, teamName : String){
-        when(teamName){
-            "HH" -> view.setImageResource(R.drawable.logo_hh)
-            "HT" -> view.setImageResource(R.drawable.logo_kia)
-            "KT" -> view.setImageResource(R.drawable.logo_kt)
-            "LG" -> view.setImageResource(R.drawable.logo_lg)
-            "LT" -> view.setImageResource(R.drawable.logo_lt)
-            "NC" -> view.setImageResource(R.drawable.logo_nc)
-            "OB" -> view.setImageResource(R.drawable.logo_ob)
-            "SK" -> view.setImageResource(R.drawable.logo_sk)
-            "SS" -> view.setImageResource(R.drawable.logo_ss)
-            "WO" -> view.setImageResource(R.drawable.logo_wo)
-        }
-    }
-
 }
