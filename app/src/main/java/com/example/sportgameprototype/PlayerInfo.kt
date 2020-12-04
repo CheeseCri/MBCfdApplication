@@ -1,8 +1,8 @@
 package com.example.sportgameprototype
 
 class PlayerInfo(
-    var backNumber: String,
-    var playerName: String,
-    var playerPos: String,
-    var playerId: String) {
+        var backNumber: Int,
+        var playerName: String,
+        var playerPos: Int,
+        var playerId: String) {
 }
