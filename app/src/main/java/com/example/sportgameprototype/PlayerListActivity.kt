@@ -7,9 +7,12 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Spinner
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import customadapters.PlayerAdapter
 import org.json.*
 
 
@@ -22,8 +25,6 @@ class PlayerListActivity : AppCompatActivity(), ItemClickListener {
     val seasonArray : ArrayList<String> = ArrayList()
     val teamArray : ArrayList<String> = ArrayList()
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.player_list)
@@ -31,15 +32,12 @@ class PlayerListActivity : AppCompatActivity(), ItemClickListener {
         val spSeason : Spinner = findViewById(R.id.sp_season)
         val spTeam : Spinner = findViewById(R.id.sp_team)
         val rvDataList : RecyclerView = findViewById(R.id.rv_data_list)
-        //val jData:String = Task().execute(JSPURL).get()
 
-        val sData:String = HTTPtask().execute(getString(R.string.JSPURL), "spinner").get()
-        //Log.i("JSON", jData)
-        Log.i("USERLOG-JSON", sData.toString())
+        val playerListData:String = HTTPtask().execute(getString(R.string.JSPURL), "spinner").get()
+        Log.i("USERLOG-JSON", playerListData.toString())
         seasonArray.add("--")
         teamArray.add("--")
-        //addJDataArray(JSONArray(jData))
-        addJSpinnerArray(JSONObject(sData))
+        addJSpinnerArray(JSONObject(playerListData))
 
         var spSeasonAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, seasonArray)
         var spTeamAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, teamArray)
@@ -48,6 +46,7 @@ class PlayerListActivity : AppCompatActivity(), ItemClickListener {
         val myAdapter = PlayerAdapter(this, this)
 
         rvDataList.layoutManager = LinearLayoutManager(this)
+        rvDataList.addItemDecoration(DividerItemDecoration(this,1))
         rvDataList.adapter = myAdapter
 
         val spinnerListener = object : AdapterView.OnItemSelectedListener {
@@ -64,10 +63,6 @@ class PlayerListActivity : AppCompatActivity(), ItemClickListener {
                 Log.d("USERLOG-SPINNER", spTeam.selectedItemPosition.toString())
 
                 if((spSeason.selectedItemPosition != 0  && spTeam.selectedItemPosition != 0)){
-                        //두 셀렉트 된 값을 모아서
-                        //HTTPtask에 excute하고 집어넣어서 뿌려주는 과정 진행
-                        //그 과정에서 데이터를 가져오는 함수를 어떻게 진행 할 것인가?
-
                     Log.d("USERLOG-SPINNER", "IF PASS, GET DATA")
                     val jData:String = HTTPtask().execute(getString(R.string.JSPURL), "recycle", spSeason.selectedItem.toString(), spTeam.selectedItem.toString()).get()
                     Log.d("USERLOG", jData)
@@ -83,10 +78,6 @@ class PlayerListActivity : AppCompatActivity(), ItemClickListener {
         spTeam.onItemSelectedListener = spinnerListener
 
 
-
-//        rv_data_list2 = findViewById(R.id.rv_data_list2)
-//        rv_data_list2.layoutManager = LinearLayoutManager(this)
-//        rv_data_list2.adapter = PlayerAdapter(playerDataArray, this)
     }
 
     private fun addJSpinnerArray(inputJson : JSONObject){
@@ -108,12 +99,13 @@ class PlayerListActivity : AppCompatActivity(), ItemClickListener {
             val item = jsonArray.getJSONObject(i) as JSONObject
             Log.i("USERLOG-ADDPLAYERDATA", item.toString())
             val input : PlayerInfo = PlayerInfo(
-                item.getString("BACK_NO"),
-                item.getString("P_NM"),
-                item.getString("POS_NO"),
-                item.getString("P_ID"))
+                    if(item.getString("BACK_NO") == "null") 0 else item.getInt("BACK_NO"),
+                    item.getString("P_NM"),
+                    if(item.getString("POS_NO") == "null") 0 else item.getInt("POS_NO"),
+                    item.getString("P_ID"))
             playerDataArray.add(input)
         }
+        playerDataArray.sortBy{ data -> data.backNumber}
         Log.i("USERLOG-ADDPLAYERDATA", playerDataArray.toString())
         return playerDataArray
     }
