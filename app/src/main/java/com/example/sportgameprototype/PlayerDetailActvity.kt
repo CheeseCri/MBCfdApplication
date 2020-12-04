@@ -3,9 +3,12 @@ package com.example.sportgameprototype
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import customadapters.RecentRecordAdapter
+import customadapters.SeasonAvgAdapter
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -15,18 +18,18 @@ class PlayerDetailActvity : AppCompatActivity() {
     lateinit var tvPlayerTeam : TextView
     lateinit var rvSeasonAvg : RecyclerView
     lateinit var rvRecentRecord : RecyclerView
+    lateinit var imgLogo : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player_detail_activity)
-        /*
-         * 뷰 선언 부분
-         */
+        // 뷰 선언 부
         tvPID = findViewById<TextView>(R.id.tv_pid)
         tvPlayerName = findViewById(R.id.tv_player_name)
         tvPlayerTeam = findViewById(R.id.tv_player_team)
         rvSeasonAvg = findViewById(R.id.rv_season_avg)
         rvRecentRecord = findViewById(R.id.rv_recent_record)
+        imgLogo = findViewById(R.id.imgv_logo)
 
         val playerID = intent.getStringExtra("playerID")
         val playerDetailInfo = HTTPtask().execute(getString(R.string.JSPURL), "player",playerID, "detail").get()
@@ -36,8 +39,11 @@ class PlayerDetailActvity : AppCompatActivity() {
 
         val detailJsonArr = JSONArray(playerDetailInfo)
         val detailJson : JSONObject = detailJsonArr[0] as JSONObject
+
+        // 선수 정보 표시 파트
         tvPlayerName.text = detailJson.getString("P_NM")
         tvPlayerTeam.text = detailJson.getString("T_ID")
+        changeImage(imgLogo, detailJson.getString("T_ID"))
         tvPID.text = playerID
 
         // seasonAvg : 시즌 평균
@@ -52,8 +58,6 @@ class PlayerDetailActvity : AppCompatActivity() {
         rvSeasonAvg.adapter = SeasonAvgAdapter(this, seasonAvg)
         rvRecentRecord.layoutManager = LinearLayoutManager(this)
         rvRecentRecord.adapter = RecentRecordAdapter(this, recentRecord)
-
-
 
     }
 
