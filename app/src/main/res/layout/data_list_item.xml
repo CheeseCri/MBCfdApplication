@@ -11,13 +11,15 @@
         android:layout_height="match_parent"
         android:layout_marginEnd="8dp"
         android:gravity="center_vertical"
+        android:text="번호"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvName"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="Num" />
+        tools:text="번호" />
 <!--    <View-->
 <!--        app:layout_constraintStart_toEndOf="@id/tvNum"-->
 <!--        app:layout_constraintEnd_toStartOf="@id/tvName"-->
@@ -29,32 +31,37 @@
 
     <TextView
         android:id="@+id/tvName"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="match_parent"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:gravity="center_vertical"
+        android:text="이름"
+        android:textAlignment="center"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvPos"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@id/tvNum"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="선수이름" />
+        tools:text="선수 이름" />
 
     <TextView
         android:id="@+id/tvPos"
         android:layout_width="60dp"
         android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:gravity="center_vertical"
+        android:text="팀 명"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toStartOf="@+id/btDetail"
         app:layout_constraintHorizontal_weight="3"
-
         app:layout_constraintStart_toEndOf="@+id/tvName"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="팀이름" />
+        tools:text="팀 명" />
 
     <Button
         android:id="@+id/btDetail"
