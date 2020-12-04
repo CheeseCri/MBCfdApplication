@@ -31,3 +31,16 @@ fun changeImage(view : ImageView, teamName : String){
         "WO" -> view.setImageResource(R.drawable.logo_wo)
     }
 }
+
+fun changeTeam(teamID : String) : String {
+    return when(teamID){
+        "HH" -> "한화"
+        "HT" -> "KIA"
+        "LT" -> "롯데"
+        "OB" -> "두산"
+        "SS" -> "삼성"
+        "WO" -> "키움"
+        "KT", "LG", "NC", "SK" -> teamID
+        else -> "오류"
+    }
+}
