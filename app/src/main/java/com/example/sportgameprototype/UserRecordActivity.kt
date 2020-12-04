@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import customadapters.UserRecordAdapter
 import org.json.JSONArray
 import org.json.JSONObject
 
