@@ -32,6 +32,21 @@ fun changeImage(view : ImageView, teamName : String){
     }
 }
 
+fun changeStation(S_ID : String) : String {
+    return when(S_ID) {
+        "GC" -> "고척경기장"
+        "CW" -> "창원경기장"
+        "KC" -> "광주경기장"
+        "DK" -> "대구경기장"
+        "DJ" -> "대전경기장"
+        "SW" -> "수원경기장"
+        "JS" -> "잠실구장"
+        "MH" -> "문학구장"
+        "SJ" -> "사직구장"
+        else -> "S_ID 오류"
+    }
+}
+
 fun changeTeam(teamID : String) : String {
     return when(teamID){
         "HH" -> "한화"
@@ -41,6 +56,6 @@ fun changeTeam(teamID : String) : String {
         "SS" -> "삼성"
         "WO" -> "키움"
         "KT", "LG", "NC", "SK" -> teamID
-        else -> "오류"
+        else -> "T_ID 오류"
     }
 }
