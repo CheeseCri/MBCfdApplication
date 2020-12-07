@@ -10,14 +10,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SportGameprototype"
         android:usesCleartextTraffic="true">
         <activity android:name=".UserRecordActivity"></activity>
         <activity android:name=".LotteryActivity" />
         <activity android:name=".GameListActivity" />
-        <activity android:name=".MainMenuActivity" />
-        <activity android:name=".PlayerListActivity" />
-        <activity android:name=".PlayerDetailActvity" />
+        <activity android:name=".MainMenuActivity"
+            android:theme="@style/Theme.SportGameprototype"
+            />
+        <activity android:name=".PlayerListActivity"
+            android:theme="@style/playerListTheme"/>
+        <activity android:name=".PlayerDetailActvity"
+            android:theme="@style/playerListTheme"/>
         <activity
             android:name=".IntroActivity"
             android:theme="@style/IntroTheme">
