@@ -103,7 +103,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:gravity="center_vertical"
-            android:text="팀 명"
+            android:text="포지션"
             android:textAlignment="center"
             android:textSize="16sp"
 
@@ -113,7 +113,7 @@
             app:layout_constraintHorizontal_weight="3"
             app:layout_constraintStart_toEndOf="@+id/tvName"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="팀 명" />
+            tools:text="포지션" />
 
         <Button
             android:id="@+id/btDetail"
