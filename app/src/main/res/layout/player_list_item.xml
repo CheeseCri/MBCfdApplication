@@ -8,17 +8,17 @@
     <TextView
         android:id="@+id/tvNum"
         android:layout_width="30dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/bt_main_menu"
+        android:backgroundTint="@color/player_record"
         android:gravity="center_vertical"
         android:text="번호"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvName"
-        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         tools:text="번호" />
 <!--    <View-->
 <!--        app:layout_constraintStart_toEndOf="@id/tvNum"-->
