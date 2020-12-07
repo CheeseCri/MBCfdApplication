@@ -1,14 +1,17 @@
 package com.example.sportgameprototype
 
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.Spinner
+import android.widget.*
+import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,10 +27,11 @@ class PlayerListActivity : AppCompatActivity(), ItemClickListener {
 //    val dataArray : ArrayList<String> = ArrayList()
     val seasonArray : ArrayList<String> = ArrayList()
     val teamArray : ArrayList<String> = ArrayList()
+    lateinit var imgLogo : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.player_list)
+        setContentView(R.layout.activity_player_list)
 
         val spSeason : Spinner = findViewById(R.id.sp_season)
         val spTeam : Spinner = findViewById(R.id.sp_team)
@@ -63,6 +67,8 @@ class PlayerListActivity : AppCompatActivity(), ItemClickListener {
                 Log.d("USERLOG-SPINNER", spTeam.selectedItemPosition.toString())
 
                 if((spSeason.selectedItemPosition != 0  && spTeam.selectedItemPosition != 0)){
+                    val tvPlayerListInfo = findViewById<TextView>(R.id.tv_player_list_info)
+                    tvPlayerListInfo.visibility = View.INVISIBLE
                     Log.d("USERLOG-SPINNER", "IF PASS, GET DATA")
                     val jData:String = HTTPtask().execute(getString(R.string.JSPURL), "recycle", spSeason.selectedItem.toString(), spTeam.selectedItem.toString()).get()
                     Log.d("USERLOG", jData)
