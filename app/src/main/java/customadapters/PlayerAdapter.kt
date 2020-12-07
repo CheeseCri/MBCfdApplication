@@ -1,6 +1,7 @@
 package customadapters
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +21,7 @@ class PlayerAdapter( private val context: Context,
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): playerViewHolder {
         return playerViewHolder(LayoutInflater.from(context).inflate(
-            R.layout.data_list_item,
+            R.layout.player_list_item,
             parent,
             false
         ))
@@ -31,6 +32,7 @@ class PlayerAdapter( private val context: Context,
         holder.tvNum.text = mylist[position].backNumber.toString()
         holder.tvName.text = mylist[position].playerName
         holder.tvTeam.text = posTransform(mylist[position].playerPos)
+        holder.detailButton.setTextColor(context.getColor(R.color.user_record))
 
         holder.detailButton.setOnClickListener{
             itemClickListener.onItemButtonClick(pID)
