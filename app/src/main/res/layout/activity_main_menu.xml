@@ -16,62 +16,63 @@
         app:layout_constraintTop_toBottomOf="@id/imageView2">
 
         <Button
-            android:id="@+id/bt_lottery_record"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
-            android:minHeight="0dp"
-            android:minWidth="0dp"
-            android:text="@string/lotteryRecord"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/bt_live_game"
-            app:layout_constraintTop_toBottomOf="@+id/bt_join_game" />
-
-        <Button
-            android:id="@+id/bt_live_game"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/liveGame"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bt_lottery_record"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt_player_record" />
-
-        <Button
             android:id="@+id/bt_player_record"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:background="@drawable/bt_main_menu"
+            android:backgroundTint="@color/player_record"
+            android:textColor="@color/user_record"
+            android:layout_width="720px"
+            android:layout_height="200px"
             android:layout_marginBottom="4dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:text="@string/playerRecordButton"
-            app:layout_constraintBottom_toTopOf="@+id/bt_live_game"
-            app:layout_constraintEnd_toStartOf="@+id/bt_join_game"
+            app:layout_constraintBottom_toTopOf="@+id/bt_join_game"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/bt_join_game"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:background="@drawable/bt_main_menu"
+            android:backgroundTint="@color/lottery"
+            android:layout_width="720px"
+            android:layout_height="200px"
             android:layout_marginBottom="4dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:text="@string/joinGame"
-            app:layout_constraintBottom_toTopOf="@+id/bt_lottery_record"
+            app:layout_constraintBottom_toTopOf="@+id/bt_live_game"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/bt_player_record"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bt_player_record" />
+
+        <Button
+            android:id="@+id/bt_live_game"
+            android:background="@drawable/bt_main_menu"
+            android:backgroundTint="@color/live_game"
+            android:layout_width="720px"
+            android:layout_height="200px"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/liveGame"
+            app:layout_constraintBottom_toTopOf="@id/bt_lottery_record"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_join_game" />
+
+        <Button
+            android:id="@+id/bt_lottery_record"
+            android:background="@drawable/bt_main_menu"
+            android:backgroundTint="@color/user_record"
+            android:layout_width="720px"
+            android:layout_height="200px"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/lotteryRecord"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt_live_game" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
