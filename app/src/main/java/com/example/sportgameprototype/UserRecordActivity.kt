@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import customadapters.UserRecordAdapter
 import org.json.JSONArray
 import org.json.JSONObject
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class UserRecordActivity : AppCompatActivity() {
     lateinit var tvLdTryCount : TextView
@@ -46,10 +48,6 @@ class UserRecordActivity : AppCompatActivity() {
         rvLotteryUserRecord.addItemDecoration(DividerItemDecoration(this, 1))
         rvLotteryUserRecord.layoutManager = LinearLayoutManager(this)
         rvLotteryUserRecord.adapter = UserRecordAdapter(this, lotteryRecordItems)
-
-
-
-
     }
 
     fun addRecordListArray(jsonArray : JSONArray): ArrayList<UserRecordItem> {
@@ -57,8 +55,15 @@ class UserRecordActivity : AppCompatActivity() {
         for (i in 0 until jsonArray.length()) {
             val item = jsonArray.getJSONObject(i) as JSONObject
             Log.d("USERLOG-UserRecord", item.toString())
+            val inputDateString = item.getString("G_DT")
+            val format = SimpleDateFormat("yyyy-MM-dd")
+            val yearFormat = SimpleDateFormat("yyyy")
+            val mmddFormat = SimpleDateFormat("MM/dd")
+            val date = format.parse(inputDateString)
             val input = UserRecordItem(
-                    gameDate = item.getString("G_DT"),
+                    gameDate = date,
+                    gameYear = yearFormat.format(date),
+                    gameMMDD = mmddFormat.format(date),
                     homeTeam = item.getString("HOME_ID"),
                     awayTeam = item.getString("AWAY_ID"),
                     bestLdPlayerName = item.getString("BEST_LD_PMN"),
