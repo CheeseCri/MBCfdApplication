@@ -1,6 +1,10 @@
 package com.example.sportgameprototype
 
-class UserRecordItem(var gameDate : String,
+import java.util.*
+
+class UserRecordItem(var gameDate : Date,
+                     var gameYear : String,
+                     var gameMMDD : String,
                      var homeTeam : String,
                      var awayTeam : String,
                      var bestLdPlayerName : String,
