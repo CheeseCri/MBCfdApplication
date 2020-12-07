@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="player_record">#B2E9FF</color>
+    <color name="lottery">#66D4F5</color>
+    <color name="live_game">#00B7EF</color>
+    <color name="user_record">#0075A9</color>
 </resources>
