@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sportgameprototype.R
@@ -34,8 +35,9 @@ class UserRecordAdapter(private val context : Context,
         holder.tvRecordLdBp.text = tmpItem.bestLdPlayerName
         holder.tvRecordRtmBp.text = tmpItem.bestRtmPlayerName
 
-        holder.tvRecordLdResult.text = if(tmpItem.isBestLd) "성공" else "실패"
-        holder.tvRecordRtmResult.text = if(tmpItem.isBestRtm) "성공" else "실패"
+        holder.imgvRecordLdResult.setImageResource( if(tmpItem.isBestLd) R.drawable.ic_success else R.drawable.ic_failure)
+        holder.imgvRecordRtmResult.setImageResource( if(tmpItem.isBestRtm) R.drawable.ic_success else R.drawable.ic_failure)
+
     }
 
     override fun getItemCount(): Int {
@@ -47,12 +49,12 @@ class UserRecordAdapter(private val context : Context,
         val tvRecordAwayTeam : TextView = view.findViewById(R.id.tv_record_away_team)
 
         val tvRecordGameYear : TextView = view.findViewById(R.id.tv_record_game_year)
-        val tvRecordGameMMDD : TextView = view.findViewById(R.id.tv_record_game_mmdd)
+        val tvRecordGameMMDD : TextView = view.findViewById(R.id.img_away_team)
 
         val tvRecordRtmBp : TextView = view.findViewById(R.id.tv_record_rtm_bp)
         val tvRecordLdBp : TextView = view.findViewById(R.id.tv_record_ld_bp)
 
-        val tvRecordRtmResult : TextView = view.findViewById(R.id.tv_record_rtm_result)
-        val tvRecordLdResult : TextView = view.findViewById(R.id.tv_record_ld_result)
+        val imgvRecordRtmResult : ImageView = view.findViewById(R.id.imgv_record_rtm_result)
+        val imgvRecordLdResult : ImageView = view.findViewById(R.id.imgv_record_ld_result)
     }
 }
