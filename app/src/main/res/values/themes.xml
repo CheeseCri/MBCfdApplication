@@ -11,11 +11,25 @@
     </style>
 
     <style name="playerListTheme" parent = "Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name ="colorPrimary">@color/player_record</item>
-        <item name ="colorPrimaryVariant">@color/user_record</item>
+    <item name ="colorPrimary">@color/player_record</item>
+    <item name ="colorPrimaryVariant">@color/user_record</item>
+    <item name ="colorPrimaryDark">@color/player_record</item>
+    <item name ="colorOnPrimary">@color/white</item>
+</style>
+
+    <style name="lotteryTheme" parent = "Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name ="colorPrimary">@color/lottery</item>
+        <item name ="colorPrimaryVariant">@color/live_game</item>
+        <item name ="colorPrimaryDark">@color/lottery</item>
         <item name ="colorOnPrimary">@color/white</item>
     </style>
 
+    <style name="userRecordTheme" parent = "Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name ="colorPrimary">@color/user_record</item>
+        <item name ="colorPrimaryVariant">@color/player_record</item>
+        <item name ="colorPrimaryDark">@color/user_record</item>
+        <item name ="colorOnPrimary">@color/white</item>
+    </style>
     <!-- Base application theme. -->
 <!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
 <!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
