@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import customadapters.GameAdapter
 import org.json.JSONArray
 import org.json.JSONObject
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class GameListActivity : AppCompatActivity(){
     lateinit var rvGameList : RecyclerView
@@ -24,7 +27,7 @@ class GameListActivity : AppCompatActivity(){
         rvGameList = findViewById(R.id.rv_game_list)
         rvGameList.layoutManager = LinearLayoutManager(this)
         rvGameList.adapter = gameListAdapter
-        rvGameList.addItemDecoration(DividerItemDecoration(this,1))
+        rvGameList.addItemDecoration(RecyclerDecoration(120))
     }
 
     fun addGameListArray(jsonArray : JSONArray): ArrayList<GameInfo> {
@@ -32,6 +35,9 @@ class GameListActivity : AppCompatActivity(){
         for (i in 0 until jsonArray.length()) {
             val item = jsonArray.getJSONObject(i) as JSONObject
             Log.d("GAMELIST", item.toString())
+            val dateString = item.getString("G_DT") + " " + item.getString("G_TM")
+            val timeFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            val gDate : Date = timeFormat.parse(dateString)
             val input = GameInfo(
                     item.getString("G_ID"),
                     item.getString("S_ID"),
@@ -39,7 +45,8 @@ class GameListActivity : AppCompatActivity(){
                     item.getString("AWAY_ID"),
                     item.getString("HOME_ID"),
                     item.getString("S_ID"),
-                    item.getString("G_TM")
+                    item.getString("G_TM"),
+                    gDate
             )
             gameListArray.add(input)
         }
