@@ -45,9 +45,9 @@ class UserRecordActivity : AppCompatActivity() {
         tvLdSuccessCount.text = lotteryRecordJson.getString("ld_success")
         tvRtmSuccessCount.text = lotteryRecordJson.getString("rtm_success")
 
-        rvLotteryUserRecord.addItemDecoration(DividerItemDecoration(this, 1))
         rvLotteryUserRecord.layoutManager = LinearLayoutManager(this)
         rvLotteryUserRecord.adapter = UserRecordAdapter(this, lotteryRecordItems)
+        rvLotteryUserRecord.addItemDecoration(RecyclerDecoration(20))
     }
 
     fun addRecordListArray(jsonArray : JSONArray): ArrayList<UserRecordItem> {
