@@ -13,20 +13,21 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 class PlayerDetailActvity : AppCompatActivity() {
-    lateinit var tvPID : TextView
     lateinit var tvPlayerName : TextView
     lateinit var tvPlayerTeam : TextView
+    lateinit var tvPlayerPosition : TextView
     lateinit var rvSeasonAvg : RecyclerView
     lateinit var rvRecentRecord : RecyclerView
     lateinit var imgLogo : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_player_detail_activity)
+        setContentView(R.layout.activity_player_detail)
         // 뷰 선언 부
-        tvPID = findViewById<TextView>(R.id.tv_pid)
+//        tvPID = findViewById<TextView>(R.id.tv_pid)
         tvPlayerName = findViewById(R.id.tv_player_name)
         tvPlayerTeam = findViewById(R.id.tv_player_team)
+        tvPlayerPosition = findViewById(R.id.tv_player_position)
         rvSeasonAvg = findViewById(R.id.rv_season_avg)
         rvRecentRecord = findViewById(R.id.rv_recent_record)
         imgLogo = findViewById(R.id.imgv_logo)
@@ -42,9 +43,13 @@ class PlayerDetailActvity : AppCompatActivity() {
 
         // 선수 정보 표시 파트
         tvPlayerName.text = detailJson.getString("P_NM")
-        tvPlayerTeam.text = detailJson.getString("T_ID")
+
+        tvPlayerTeam.text = changeTeam(detailJson.getString("T_ID"))
+
+        tvPlayerPosition.text = posTransform(detailJson.getString("POS_NO").toInt())
+
         changeImage(imgLogo, detailJson.getString("T_ID"))
-        tvPID.text = playerID
+//        tvPID.text = playerID
 
         // seasonAvg : 시즌 평균
         // recentRecord : 최근 5경기 기록
