@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sportgameprototype">
-
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -10,33 +10,40 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme = "@style/Theme.AppCompat.NoActionBar">
-<!--메인 액티비-->
-        <activity android:name=".MainMenuActivity"
-            android:theme="@style/Theme.SportGameprototype"
-            />
-<!--유저 기록 액티비티-->
-        <activity android:name=".UserRecordActivity"
-            android:theme = "@style/userRecordTheme"/>
-<!--게임 추첨 액티비티-->
-        <activity android:name=".LotteryActivity"
-            android:theme = "@style/lotteryTheme"/>
-        <activity android:name=".GameListActivity"
-            android:theme = "@style/lotteryTheme"/>
-<!--플레이어 목록 및 상세 기록 액티비티-->
-        <activity android:name=".PlayerListActivity"
-            android:theme="@style/playerListTheme"/>
-        <activity android:name=".PlayerDetailActvity"
-            android:theme="@style/playerListTheme"/>
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".PopupPlayerActivity"
+            android:theme="@style/Custom"/>
+        <!-- 메인 액티비 -->
+        <activity
+            android:name=".MainMenuActivity"
+            android:theme="@style/Theme.SportGameprototype" /> <!-- 유저 기록 액티비티 -->
+        <activity
+            android:name=".UserRecordActivity"
+            android:theme="@style/userRecordTheme" /> <!-- 게임 추첨 액티비티 -->
+        <activity
+            android:name=".LotteryActivity"
+            android:theme="@style/lotteryTheme" />
+        <activity
+            android:name=".GameListActivity"
+            android:theme="@style/lotteryTheme" /> <!-- 플레이어 목록 및 상세 기록 액티비티 -->
+        <activity
+            android:name=".PlayerListActivity"
+            android:theme="@style/playerListTheme" />
+        <activity
+            android:name=".PlayerDetailActvity"
+            android:theme="@style/playerListTheme" />
         <activity
             android:name=".IntroActivity"
             android:theme="@style/IntroTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

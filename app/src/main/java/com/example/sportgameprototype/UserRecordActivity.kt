@@ -58,7 +58,7 @@ class UserRecordActivity : AppCompatActivity() {
             val inputDateString = item.getString("G_DT")
             val format = SimpleDateFormat("yyyy-MM-dd")
             val yearFormat = SimpleDateFormat("yyyy")
-            val mmddFormat = SimpleDateFormat("MM/dd")
+            val mmddFormat = SimpleDateFormat("MM-dd")
             val date = format.parse(inputDateString)
             val input = UserRecordItem(
                     gameDate = date,

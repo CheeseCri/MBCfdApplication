@@ -30,6 +30,14 @@
         <item name ="colorPrimaryDark">@color/user_record</item>
         <item name ="colorOnPrimary">@color/white</item>
     </style>
+    <style name="Custom" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <item name ="colorPrimary">@color/user_record</item>
+        <item name ="colorPrimaryVariant">@color/player_record</item>
+        <item name ="colorPrimaryDark">@color/user_record</item>
+        <item name ="colorOnPrimary">@color/white</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
     <!-- Base application theme. -->
 <!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
 <!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->

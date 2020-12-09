@@ -49,11 +49,11 @@
         android:id="@+id/cl_player_list_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintBottom_toTopOf="@id/cl_player_list_category"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" >
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <Spinner
             android:id="@+id/sp_season"
@@ -63,7 +63,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/sp_team"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <Spinner

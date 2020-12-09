@@ -45,7 +45,7 @@ class LotteryAdapter(private val context : Context,
     }
 
     override fun onBindViewHolder(holder: LotteryViewHolder, position: Int) {
-        // 아이템 클릭 리스너 할
+        // 아이템 클릭 리스너 할당 
         // 텍스트 뷰 바인딩
         holder.tvLotteryItemPlayerName.text = lotteryPlayerList[position].playerName
         holder.tvLotteryItemPlayerNum.text = lotteryPlayerList[position].backNumber.toString()
