@@ -1,5 +1,5 @@
-# MBCfdApplication
-MBC 양방향 통신 어플리케이션
+# fdApplication
+양방향 통신 어플리케이션
 
 
 - 코드 개요
